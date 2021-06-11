@@ -1,0 +1,47 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap" rel="stylesheet">
+ <ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div class="back-circle"></div>
+    <ion-title class="ion-text-center custom-font">All Categories</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let category of listeCategories">
+      <ion-card>
+        <ion-item lines="none" style="margin: 0px 0px;">
+              <ion-avatar slot="start">
+                <img [src]="imurl|async" alt="non disponible">
+              </ion-avatar>
+              <ion-label>
+                
+                <h3>{{user.storeName}} 's Store</h3>
+                <h3>{{user.email}} </h3>
+              </ion-label>
+            </ion-item>     
+        <ion-card-header> 
+              
+          <ion-card-title>
+            Category Name:{{category.name}} 
+              
+              
+          </ion-card-title>
+          
+        </ion-card-header>
+        <ion-img [src]="category.image|async"></ion-img> 
+        <ion-card-content>
+          <!--p>prix {{product.prix}} dt</p>
+          <p>category: {{product.categoryName}} </p>
+          <p>quantite: {{product.quantite}} </p-->
+          <ion-button color="success" slot="start" (click)="allermodif(category)">update</ion-button>
+          <!--ion-button color="danger" slot="end" (click)="delete(product)">delete</ion-button-->
+        </ion-card-content>
+        
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
